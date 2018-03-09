@@ -1,4 +1,4 @@
-.PHONY: run build
+.PHONY: run build debug
 
 SOURCES := $(shell find Sources -name '*.swift')
 
@@ -12,3 +12,6 @@ build: build/Debug-iphoneos/Soon.app
 
 run: build/Debug-iphoneos/Soon.app
 	ios-deploy --bundle build/Debug-iphoneos/Soon.app --justlaunch
+
+debug: build/Debug-iphoneos/Soon.app
+	ios-deploy --bundle build/Debug-iphoneos/Soon.app --debug
