@@ -9,10 +9,7 @@ class MainPage: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "Todo items"
-
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         self.view.addSubview(titleLabel)
 
