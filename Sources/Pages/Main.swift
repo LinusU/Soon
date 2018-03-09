@@ -8,6 +8,12 @@ class MainPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "Todo items"
+
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+
         self.view.addSubview(titleLabel)
 
         titleLabel.text = "Hello, World!"

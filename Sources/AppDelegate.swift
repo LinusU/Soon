@@ -6,10 +6,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let mainPage = MainPage()
+        let navigator = UINavigationController(rootViewController: mainPage)
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = .white
-        self.window!.rootViewController = mainPage
+        self.window!.rootViewController = navigator
         self.window!.makeKeyAndVisible()
 
         return true
