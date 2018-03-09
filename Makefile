@@ -2,7 +2,10 @@
 
 SOURCES := $(shell find Sources -name '*.swift')
 
-Soon.xcodeproj: project.yml
+Cartfile.resolved: Cartfile
+	carthage update
+
+Soon.xcodeproj: project.yml Cartfile.resolved
 	mint run yonaskolb/xcodegen
 
 build/Debug-iphoneos/Soon.app: Soon.xcodeproj $(SOURCES)
