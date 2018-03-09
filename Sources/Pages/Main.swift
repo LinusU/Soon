@@ -1,5 +1,6 @@
 import UIKit
 
+import Signals
 import SnapKit
 
 class ItemCell: UITableViewCell {
@@ -42,6 +43,7 @@ class ItemCell: UITableViewCell {
 
 class MainPage: UITableViewController {
     lazy var store = TodoStore.default
+    lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +51,34 @@ class MainPage: UITableViewController {
         tableView.register(ItemCell.self, forCellReuseIdentifier: "item")
 
         navigationItem.title = "Todo items"
+        navigationItem.setRightBarButton(addButton, animated: false)
         navigationController?.navigationBar.prefersLargeTitles = true
+
+        addButton.onAction.subscribe(with: self) { _ in
+            let alert = UIAlertController(title: "Add item", message: "What do you need to do?", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let doneAction = UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                if let text = alert?.textFields![0].text {
+                    let indexPath = IndexPath(row: self.store.count, section: 0)
+
+                    self.store.append(TodoItem(title: text, done: false))
+                    self.tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+            })
+
+            alert.addAction(cancelAction)
+            alert.addAction(doneAction)
+
+            alert.addTextField { textField in
+                textField.autocapitalizationType = .sentences
+                textField.autocorrectionType = .yes
+                textField.enablesReturnKeyAutomatically = true
+                textField.placeholder = "Take the trash out"
+                textField.returnKeyType = .done
+            }
+
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

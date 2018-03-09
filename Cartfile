@@ -1,1 +1,2 @@
+github "LinusU/Signals" "uibarbuttonitem"
 github "SnapKit/SnapKit" ~> 4.0.0
