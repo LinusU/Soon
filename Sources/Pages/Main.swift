@@ -1,15 +1,20 @@
 import UIKit
 
+import SnapKit
+
 class MainPage: UIViewController {
     lazy var titleLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.addSubview(titleLabel)
+
         titleLabel.text = "Hello, World!"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
-        titleLabel.frame = CGRect(x: 8, y: 16, width: 200, height: 40)
 
-        self.view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
 }

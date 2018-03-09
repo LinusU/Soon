@@ -9,8 +9,8 @@ targets:
     sources: [Sources]
     settings:
       DEVELOPMENT_TEAM: 8P9699NEPR
-    # dependencies:
-    #   - target: MyFramework
+    dependencies:
+      - carthage: SnapKit
   # MyFramework:
   #   type: framework
   #   platform: iOS
