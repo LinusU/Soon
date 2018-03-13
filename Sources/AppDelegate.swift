@@ -30,10 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {}
+    func applicationWillResignActive(_ application: UIApplication) {
+        guard self.unlockWindow == nil && self.signupWindow == nil else { return }
+
+        self.unlockWindow = OverlayWindow(rootViewController: UnlockPage(), animated: false)
+        self.unlockWindow!.rootViewController.onUnlock.subscribe(with: self) { _ in self.unlockWindow = nil }
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        self.unlockWindow?.rootViewController.askUserForPassword()
+    }
+
     func applicationDidEnterBackground(_ application: UIApplication) {}
     func applicationWillEnterForeground(_ application: UIApplication) {}
-    func applicationDidBecomeActive(_ application: UIApplication) {}
     func applicationWillTerminate(_ application: UIApplication) {}
 }
 
