@@ -10,6 +10,9 @@ targets:
     settings:
       DEVELOPMENT_TEAM: 8P9699NEPR
     dependencies:
+      - carthage: BioPass
+      - carthage: OverlayWindow
+      - carthage: PromiseKit
       - carthage: Signals
       - carthage: SnapKit
   # MyFramework:

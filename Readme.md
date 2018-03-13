@@ -38,4 +38,6 @@ make debug
 
 ## Screenshots
 
+<p align="center"><img src="Docs/Screenshot - Signup.jpg" width="375" /><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="48" /><img src="Docs/Screenshot - Login.jpg" width="375" /></p>
+
 <p align="center"><img src="Docs/Screenshot - List.jpg" width="375" /><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="48" /><img src="Docs/Screenshot - Add.jpg" width="375" /></p>
