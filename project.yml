@@ -15,6 +15,7 @@ targets:
       - carthage: PromiseKit
       - carthage: Signals
       - carthage: SnapKit
+      - carthage: Valet
   # MyFramework:
   #   type: framework
   #   platform: iOS

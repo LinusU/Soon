@@ -1,4 +1,4 @@
-github "LinusU/BioPass" ~> 1.1.1
+github "LinusU/BioPass" ~> 2.0.0
 github "LinusU/OverlayWindow" ~> 1.0.2
 github "LinusU/Signals" "uibarbuttonitem"
 github "mxcl/PromiseKit" ~> 6.0.0

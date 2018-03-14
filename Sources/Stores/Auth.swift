@@ -62,11 +62,11 @@ class AuthStore {
         return firstly {
             Data.readAsync(from: AuthStore.passwordDigestURL)
         }.then { digest in
-            Promise { $0.fulfill(digest == password.djb2hash) }
+            Promise.value(digest == password.djb2hash)
         }
     }
 
-    func readPasswordFromKeychain(withPrompt prompt: String? = nil) -> Promise<String?> {
+    func readPasswordFromKeychain(withPrompt prompt: String) -> Promise<String?> {
         return bioPass.retreive(withPrompt: prompt)
     }
 }
